@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #020408;
+  --bg2: rgba(6, 12, 22, 0.85);
+  --bg3: rgba(10, 20, 35, 0.7);
+  --bg-glass: rgba(8, 16, 30, 0.6);
+  --border: rgba(0, 200, 255, 0.08);
+  --border-bright: rgba(0, 200, 255, 0.2);
+  --border-glow: rgba(0, 200, 255, 0.5);
+  --cyan: #00c8ff;
+  --cyan-dim: rgba(0, 200, 255, 0.6);
+  --magenta: #ff2d9b;
+  --magenta-dim: rgba(255, 45, 155, 0.6);
+  --gold: #ffb800;
+  --gold-dim: rgba(255, 184, 0, 0.6);
+  --green: #00ff9d;
+  --green-dim: rgba(0, 255, 157, 0.6);
+  --text: #e8f4ff;
+  --text-muted: rgba(232, 244, 255, 0.5);
+  --text-dim: rgba(232, 244, 255, 0.25);
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-title: 'Orbitron', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  cursor: crosshair;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom cursor glow dot */
+body::after {
+  content: '';
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 12px var(--cyan), 0 0 24px var(--cyan);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--cyan), var(--magenta));
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 200, 255, 0.25);
+  color: white;
+}
+
+/* =================== KEYFRAMES =================== */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: 0.8; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(0,200,255,0.2); box-shadow: 0 0 10px rgba(0,200,255,0.1) inset; }
+  50% { border-color: rgba(0,200,255,0.5); box-shadow: 0 0 30px rgba(0,200,255,0.2) inset; }
+}
+
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(0,200,255,0.5); }
+  50% { text-shadow: 0 0 40px rgba(0,200,255,0.9), 0 0 80px rgba(0,200,255,0.4); }
+}
+
+@keyframes logoFlicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.7; }
+  97% { opacity: 1; }
+  98% { opacity: 0.4; }
+  99% { opacity: 1; }
+}
+
+@keyframes shimmerSweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes cornerPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -20; }
+}
+
+@keyframes rgbShift {
+  0%   { text-shadow: 2px 0 #ff2d9b, -2px 0 #00c8ff; }
+  33%  { text-shadow: -2px 0 #ff2d9b, 2px 0 #00c8ff; }
+  66%  { text-shadow: 2px 0 #00ff9d, -2px 0 #ffb800; }
+  100% { text-shadow: 2px 0 #ff2d9b, -2px 0 #00c8ff; }
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes successPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
